@@ -1,4 +1,5 @@
 import streamlit as st
+from pathlib import Path
 import pandas as pd
 import numpy as np
 import torch
@@ -64,8 +65,9 @@ footer {visibility:hidden;}
 </div>
 """, unsafe_allow_html=True)
 
-DATA_FILE = "powerplant_data.csv"
-MODEL_FILE = "best_model.pt"
+BASE_DIR = Path(__file__).resolve().parent
+DATA_FILE = BASE_DIR / "powerplant_data.csv"
+MODEL_FILE = BASE_DIR / "best_model.pt"
 FEATURES = ["AT", "V", "AP", "RH"]
 LABELS = {
     "AT": "Ambient Temperature (°C)",
